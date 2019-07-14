@@ -1,0 +1,68 @@
+type Query {
+  asset_all: [asset]
+  get_tasks_for_worker(query: ID!): [Allocate]
+}
+
+
+
+type Mutation {
+  allocate_task(data: AllocateTask): Allocate!
+  add_asset(data: AddAsset): asset! 
+  add_task(data: AddTask): task!
+  add_worker(data: AddWorker): worker!
+}
+
+
+
+type worker {
+  id: ID!
+  name: String!
+  age: Int!
+  phone: Int!
+}
+
+type asset {
+  id: ID!
+  description: String!
+}
+
+type task {
+  id: ID!
+  task: String!
+  description: String!
+}
+
+type Allocate {
+  assetId: ID!
+  taskId: ID!
+  workerID: ID!
+  timeOfAllocation: String!
+  taskToBePerformedBy: String!
+}
+
+input AllocateTask {
+  assetId: ID!
+  taskId: ID!
+  workerID: ID!
+  timeOfAllocation: String!
+  taskToBePerformedBy: String!
+}
+
+input AddWorker {
+  id: ID!
+  name: String!
+  age: Int!
+  phone: Int!
+}
+
+input AddAsset {
+  id: ID!
+  description: String!
+}
+
+input AddTask {
+  id: ID!
+  task: String!
+  description: String!
+}
+
