@@ -1,5 +1,3 @@
-import uuidv4 from "uuid/v4";
-
 
 const Mutation = {
   add_asset(parent, args, { db }, info) {
