@@ -5,19 +5,17 @@ import db from "./db";
 
 // Resolver
 
-const pubsub = new PubSub();
+
 
 const server = new GraphQLServer({
   typeDefs: "./src/schema.graphql",
   resolvers: {
     Query,
-
     Mutation,
 
   },
   context: {
-    db,
-    pubsub
+    db
   }
 });
 
